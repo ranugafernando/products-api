@@ -1,6 +1,6 @@
 package uk.ac.westminster.products_api;
 
-public class Product {
+public abstract class Product {
 
     //private -
     //public -
@@ -43,5 +43,9 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    //public abstract getSummery
+
+    public abstract String getSummery();
 
 }

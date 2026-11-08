@@ -23,8 +23,9 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
-        return productService.addProduct(product);
+    public DigitalProduct addProduct(@RequestBody DigitalProduct product) {
+        //Product is abstract, so this endpoint accepts DigitalProduct instead
+        return (DigitalProduct) productService.addProduct(product);
     }
 
     @DeleteMapping("/products/{id}")
@@ -35,6 +36,11 @@ public class ProductController {
     @GetMapping("/products/search")
     public List<Product> search(@RequestParam String name){
         return productService.findByname(name);
+    }
+
+    @GetMapping("/products/summeries")
+    public List<String> getSummaries(){
+        return productService.getAllSummaries();
     }
 }
 

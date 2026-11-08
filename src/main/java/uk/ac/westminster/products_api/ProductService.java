@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-
 public class ProductService {
 
     private List<Product> products = new ArrayList<>();
@@ -35,5 +34,15 @@ public class ProductService {
         return products.stream()
                 .filter(p -> p.getName().contains(name))
                 .toList();
+    }
+
+    public List<String> getAllSummaries(){
+
+        List<String> summaries = new ArrayList<>();
+
+        for (Product product: products){
+            summaries.add(product.getSummery());
+        }
+        return summaries;
     }
 }
